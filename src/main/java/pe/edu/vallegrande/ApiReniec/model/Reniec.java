@@ -1,24 +1,35 @@
 package pe.edu.vallegrande.ApiReniec.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id; // Corregido el import de Id
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@NoArgsConstructor
 @Table("usuarios")
 public class Reniec {
     @Id
-    private String dni; // DNI como identificador
+    private Long id;
 
+    @Column("dni")
+    private String dni;
+
+    @Column("nombres")
     private String nombres;
 
-    private String apellidoPaterno; // Cambié a camelCase
+    @Column("apellidoPaterno")
+    private String apellidoPaterno;
 
-    private String apellidoMaterno; // Cambié a camelCase
+    @Column("apellidoMaterno")
+    private String apellidoMaterno;
+
+    @Column("codVerifica")
+    private String codVerifica;
+
+    @Column("status")
+    private String status; // Cambié a camelCase
 }
